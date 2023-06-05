@@ -8,10 +8,10 @@ setup(
     name='Name conversion',
     version='3.0.0',
     description=u'Библиотека для склонения кириллических ФИО по падежам',
-    url='https://github.com/damirazo/petrovich',
+    url='https://github.com/DanilSozonov/name_conversion',
     author='damirazo',
     author_email='me@damirazo.ru',
-    maintainers='DanilSozonov',
+    maintainers=['DanilSozonov', ],
     license='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
