@@ -19,7 +19,7 @@ setup(
         'Topic :: Software Development :: Localization',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: Russian',
-        'Programming Language :: Python :: 3.x',
+        'Programming Language :: Python :: 3.9',
     ],
     keywords='name conversion python declension initials russian language',
     packages=find_packages(),
