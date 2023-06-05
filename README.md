@@ -1,25 +1,23 @@
-![Petrovich](petrovich.png)
-
 Склонение русских имён, фамилий и отчеств по падежам.
 Порт с [ruby](https://github.com/petrovich/petrovich-ruby) библиотеки на python
 
 
 #### Установка
-`pip install petrovich`
+`pip install name_conversion`
 
 
 #### Описание
 
-Перед использованием модуля требуется создать экземпляр класса Petrovich.
+Перед использованием модуля требуется создать экземпляр класса Converter.
 В момент инстанцирования производится загрузка файла с правилами
 
-    from petrovich.main import Petrovich
+    from name_conversion.converter import Converter
     
-    p = Petrovich()
+    converter = Converter()
     
 Также при инстанцировании есть возможность выполнить загрузку собственного файла с правилами, путем передачи значения через аргумент `rules_path`
 
-    p = Petrovich(rules_path='my/custom/rules/file.json')
+    converter = Converter(rules_path='my/custom/rules/file.json')
 
 Для склонения каждой из частей ФИО используется собственный метод. Это:
 
@@ -30,21 +28,27 @@
 Каждый из этих методов принимает по 3 аргумента:
 
 - `value` - слово для склонения в именительном падеже
-- `case` - падеж для склонения, содержащий значение, представленное в перечислении `petrovich.enums.Case`
-- `gender` - род для склонения, необязательное для заполнения. Если не задать, то будет попытка определить род самостоятельно на основе определенных правил. В ряде случаев возможно ошибочное определение, например для несклоняемых фамилий (Ткач, Бондаренко, и т.д.). Используется значение из перечисления `petrovich.enums.Gender`.
+- `case` - падеж для склонения, содержащий значение, представленное в перечислении `name_conversion.enums.Case`
+- `gender` - род для склонения, необязательное для заполнения. Если не задать, то будет попытка определить род самостоятельно на основе определенных правил. В ряде случаев возможно ошибочное определение, например для несклоняемых фамилий (Ткач, Бондаренко, и т.д.). Используется значение из перечисления `name_conversion.enums.Gender`.
 
 
 #### Пример использования
 
-    from petrovich.main import Petrovich
-    from petrovich.enums import Case, Gender
+    from name_conversion.converter import Converter
+    from name_conversion.enums import Case, Gender
     
-    p = Petrovich()
-    cased_lname = p.lastname(u'Алексеев', Case.GENITIVE, Gender.MALE)
-    print cased_lname  # > Алексеева
+    converter = converter()
+    cased_lname = converter.lastname('Алексеев', Case.GENITIVE, Gender.MALE)
+    print(cased_lname)  
+    # Алексеева
     
     
 #### История изменений
-##### 1.0.0. 
+##### 1.0.0
 Присутствуют изменения с потерей обратной совместимости. 
-Был удален префикс `CASE_` у всех значений перечисления `petrovich.enums.Case`.
+Был удален префикс `CASE_` у всех значений перечисления `name_conversion.enums.Case`.
+##### 2.0.0
+Совместимость с Python 3.x
+##### 3.0.0
+Переименованы названия классов, название модулей, название приложения для более
+официального вида, без юмористического контекста.

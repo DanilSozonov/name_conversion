@@ -1,6 +1,6 @@
 include *.md
 include *.png
 include LICENSE
-recursive-include petrovich *.md
-recursive-include petrovich *.yml
-recursive-include petrovich *.json
+recursive-include name_conversion *.md
+recursive-include name_conversion *.yml
+recursive-include name_conversion *.json

@@ -1,16 +1,16 @@
 # coding: utf-8
 from unittest import TestCase
-from petrovich.enums import Case, Gender
-from petrovich.main import Petrovich
+from name_conversion.enums import Case, Gender
+from name_conversion.converter import Converter
 
 __author__ = 'damirazo <me@damirazo.ru>'
 
 
-class PetrovichTestCase(TestCase):
+class ConverterTestCase(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.p = Petrovich()
+        cls.p = Converter()
 
     def test_1(self):
         self.assertEqual(self.p.firstname(u'Дамир', Case.GENITIVE), u'Дамира')
