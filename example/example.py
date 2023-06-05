@@ -1,6 +1,6 @@
 # coding: utf-8
-from petrovich.enums import Case, Gender
-from petrovich.main import Petrovich
+from name_conversion.enums import Case, Gender
+from name_conversion.converter import Converter
 
 __author__ = 'damirazo <me@damirazo.ru>'
 
@@ -14,7 +14,7 @@ if __name__ == '__main__':
         (u'Ткач', u'Валентин', u'Петрович', Gender.MALE),
     ]
 
-    petro = Petrovich()
+    petro = Converter()
 
     for segments in rows:
         gender = None

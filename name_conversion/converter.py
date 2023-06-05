@@ -11,7 +11,7 @@ CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 DEFAULT_RULES_PATH = os.path.join(CURRENT_PATH, 'rules', 'rules.json')
 
 
-class Petrovich(object):
+class Converter(object):
     u"""
     Основной класс для склонения кириллических ФИО
     """
@@ -33,12 +33,8 @@ class Petrovich(object):
                 'File with rules {} does not exists!'
             ).format(rules_path))
 
-        try:
-            with open(rules_path, 'r', encoding='utf8') as fp:
-                self.data = json.load(fp)
-        except:
-            with open(rules_path, 'r') as fp:
-                self.data = json.load(fp)
+        with open(rules_path, 'r', encoding='utf-8') as fp:
+            self.data = json.load(fp)
 
     def firstname(self, value, case, gender=None):
         u"""
@@ -85,11 +81,11 @@ class Petrovich(object):
         :param name: имя
         :return: разделённое имя вместе с разделителями
         """
-        def gen(name, separators):
+        def gen(input_name, separators):
             if len(separators) == 0:
-                yield name
+                yield input_name
             else:
-                segments = name.split(separators[0])
+                segments = input_name.split(separators[0])
                 for subsegment in gen(segments[0], separators[1:]):
                     yield subsegment
                 for segment in segments[1:]:

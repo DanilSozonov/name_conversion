@@ -59,4 +59,4 @@ target/
 # IDE
 .idea/
 
-petrovich/rules/*
+name_conversion/rules/*
